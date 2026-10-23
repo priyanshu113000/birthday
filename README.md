@@ -1,6 +1,6 @@
 # Happy Birthday, Chutki Di
 
-A candlelit shrine with a holographic photo card, built with React + Vite + Three.js.
+ThreeUI's `DarkSoulsHoloCard` (The Ashen One) remade as a birthday card: her photos sit in the card's arched window, her name and a caption are engraved on the gold plates, and the wish appears when the card is flipped.
 
 ## Run it
 
@@ -9,14 +9,16 @@ npm install
 npm run dev
 ```
 
-## Make it yours
+## Make changes
 
-1. Put photos in `public/photos/` named `1.jpg` … `6.jpg` (or change the paths).
-2. Edit `src/config.js`: her name, the message on the back of the card, the captions, and the wish.
-3. Optional: drop a song at `public/song.mp3`. It starts when she taps to light the candles.
+- Text and captions: `src/config.js`. Captions are engraved on the bottom plate, so keep them short.
+- Photos: `public/photos/1.jpg` … `6.jpg`.
+- Music (optional): `public/song.mp3`, starts after the first tap.
 
-## Share it
+## How it fits together
 
-`npm run build` writes a static site to `dist/`. Drag that folder onto Netlify Drop, or deploy the repo on Vercel.
-# birthday
-# birthday
+- `src/shaders/dark-souls-holo-card/DarkSoulsHoloCard.tsx` is ThreeUI's component. It loads the scene in an iframe.
+- `public/landing-pages/birthday-card.html` is ThreeUI's scene document with the birthday changes (search for `Birthday edition`).
+- `public/landing-pages/dark-souls-holo-card.html` is the original download, kept for reference.
+
+The scene loads three.js from jsDelivr and its models, textures and fonts from ThreeUI's storage, so it needs an internet connection.
